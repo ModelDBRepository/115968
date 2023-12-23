@@ -1,0 +1,94 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Mozilla/4.05 [en] (Win95; I) [Netscape]"><title>Polychronization: Computation With Spikes</title></head>
+<body bgcolor="#ffffff" text="#000077"><p>
+<b><font color="#0000ff"><font size="+2">
+Polychronization: Computation With Spikes
+</font></font></b>
+
+</p><p><i><font color="#000000">
+Neural Computation
+</font></i><font color="#000000">(2006) 18:245-282</font>
+
+</p><p><font color="#000000">
+Eugene M. Izhikevich
+</font>
+
+</p><p><i><font color="#000000">The Neurosciences Institute,</font></i>
+<br><i><font color="#000000">10640 John Jay Hopkins Drive,</font></i>
+<br><i><font color="#000000">San Diego, CA, 92121.</font></i>
+
+</p><p><font color="#000000"><b><font size="+1">Abstract.</font></b> 
+We present a minimal spiking network that can polychronize, i.e., 
+exhibit reproducible time-locked but not synchronous 
+firing patterns with millisecond precision, as in synfire braids. 
+The network consists of cortical spiking neurons with axonal 
+conduction delays and spike-timing-dependent plasticity (STDP); 
+a ready-to-use MATLAB <a href="http://vesicle.nsi.edu/users/izhikevich/publications/spnet.m">program</a> 
+and C++ <a href="http://vesicle.nsi.edu/users/izhikevich/publications/spnet.cpp">program</a> code is included.
+It exhibits sleep-like oscillations, gamma (40 Hz) rhythms, 
+conversion of firing rates to spike-timings, and other interesting regimes. 
+Due to the interplay between the delays and STDP, 
+the spiking neurons spontaneously self-organize into groups and 
+generate patterns of stereotypical polychronous activity. 
+To our surprise, the number of co-existing polychronous groups 
+far exceeds the number of neurons in the network, resulting in an 
+unprecedented memory capacity of the system. 
+We speculate on the significance of polychrony to the theory of 
+neuronal group selection (TNGS, Neural Darwinism), 
+cognitive neural computations, binding and gamma rhythm, 
+mechanisms of attention, and consciousness as "attention to memories". 
+</font></p>
+
+<p><font color="#000000"><font color="#000000">
+Full text in
+<a href="http://vesicle.nsi.edu/users/izhikevich/publications/spnet.pdf">PDF file</a>, 
+</font>
+
+</font></p><h2><font color="#000000">Files for simulation</font></h2>
+
+<h3><font color="#000000">Simulation files as in the original article:</font></h3>
+<ul>
+<li><font color="#000000"><a href="http://vesicle.nsi.edu/users/izhikevich/publications/spnet.m">spnet.m</a> - MATLAB program to simulate the dynamics of spiking network with delays and STDP</font></li>
+<li><font color="#000000"><a href="http://vesicle.nsi.edu/users/izhikevich/publications/spnet.cpp">spnet.cpp</a> - C program  to simulate the dynamics of spiking network with delays and STDP</font></li>
+</ul>
+
+<h3><font color="#000000">Simulation files to explore polychronous groups:</font></h3>
+<ul>
+<li><font color="#000000"><a href="http://vesicle.nsi.edu/users/izhikevich/publications/spnet1.m">spnet1.m</a> - the same as above except the initialization procedure does not allow for multiple synapses between any pair of neurons
+</font></li>
+<li><font color="#000000"><a href="http://vesicle.nsi.edu/users/izhikevich/publications/polygroup.m">polygroup.m</a> - MATLAB file that finds a polychronous group starting with specified anchor neurons
+</font></li>
+<li><font color="#000000"><a href="http://vesicle.nsi.edu/users/izhikevich/publications/polychron.m">polychron.m</a> - MATLAB file that tries various anchor neurons and calls polygroup.m.
+</font></li>
+<li><font color="#000000"><a href="http://vesicle.nsi.edu/users/izhikevich/publications/poly_spnet.cpp">poly_spnet.cpp</a> - C program that combines all of the above MATLAB functionality
+</font></li>
+</ul>
+
+<p><font color="#000000">To find polychronous groups, first run
+spnet1.m for sufficiently long period of time and then save the
+workspace in a file, e.g., write 'save 18000'. Then, use this file name
+in the program polychron.m to find all groups. Uncomment the line that
+shuffles excitatory-&gt;excitatory connections and run polychron.m
+again to see how many groups are expected by chance.</font></p>
+
+<p><font color="#000000">For example, the program spnet1.m was run for 18000 seconds and the workspace was saved in the file <a href="http://vesicle.nsi.edu/users/izhikevich/publications/18000.mat">18000.mat</a>.
+Then, polychron.m found 1973 groups (only 211 for shuffled synapses).
+Using less stringent requirement for groups (i.e., setting
+min_group_path=6 in polychron.m) results in 6071 groups. </font></p>
+
+<p><font color="#000000"><b>Note:</b> The MATLAB and C programs are similar but not equivalent. MATLAB program misses some of the groups.</font></p>
+
+<p><font color="#000000">The quickest way to start is to download polychron.m, polygroup.m, and <a href="http://vesicle.nsi.edu/users/izhikevich/publications/18000.mat">18000.mat</a> into the same folder. Then, run polychron.m and enjoy the show.</font></p>
+
+<p><font color="#000000"><font color="#000000">Correspondence to <a href="mailto:Eugene.Izhikevich@nsi.edu">Eugene
+Izhikevich</a></font>
+
+</font></p><center>
+<font color="#000000">[<a href="http://vesicle.nsi.edu/users/izhikevich/index.htm">home</a>]
+[<a href="http://vesicle.nsi.edu/users/izhikevich/interest/index.htm">research</a>]
+[<a href="http://vesicle.nsi.edu/users/izhikevich/publications/index.htm">publications</a>]
+[<a href="http://vesicle.nsi.edu/users/izhikevich/cv/index.htm">cv</a>]
+</font></center>
+
+</body></html>
